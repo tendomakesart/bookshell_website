@@ -49,6 +49,16 @@ For local function testing, use Cloudflare's Pages dev runtime rather than plain
 npx wrangler pages dev dist --binding BUTTONDOWN_API_KEY=your_test_key
 ```
 
+If the site is deployed as a Cloudflare Workers Static Assets project instead of Cloudflare Pages, this repo also includes `worker.js` and `wrangler.toml`. The Worker handles `/api/waitlist` and serves everything else from `dist/`.
+
+Deploy/update that Worker with:
+
+```powershell
+npm.cmd run build
+npx wrangler secret put BUTTONDOWN_API_KEY
+npx wrangler deploy
+```
+
 ## Pre-Launch Checklist
 
 - Set `BUTTONDOWN_API_KEY` in Cloudflare Pages.

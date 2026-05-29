@@ -1,3 +1,4 @@
+import { AmbientBackdrop } from "../components/AmbientBackdrop";
 import { Footer } from "../components/Footer";
 import { Header } from "../components/Header";
 import { ProductMockup } from "../components/ProductMockup";
@@ -100,6 +101,7 @@ const faqs = [
 export function SalesPage() {
   return (
     <>
+      <AmbientBackdrop />
       <Header active="sales" />
       <main className="sales-page">
         <section className="hero-section sales-hero sales-hero-tuned">

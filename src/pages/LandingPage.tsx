@@ -1,3 +1,4 @@
+import { AmbientBackdrop } from "../components/AmbientBackdrop";
 import { Footer } from "../components/Footer";
 import { Header } from "../components/Header";
 import { ProductMockup } from "../components/ProductMockup";
@@ -56,6 +57,7 @@ const galleryPanels = [
 export function LandingPage() {
   return (
     <>
+      <AmbientBackdrop />
       <Header active="home" />
       <main>
         <section className="hero-section">

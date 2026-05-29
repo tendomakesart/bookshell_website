@@ -9,6 +9,7 @@ export default defineConfig({
       input: {
         changelog: resolve(__dirname, "changelog/index.html"),
         contact: resolve(__dirname, "contact/index.html"),
+        features: resolve(__dirname, "features/index.html"),
         main: resolve(__dirname, "index.html"),
         press: resolve(__dirname, "press/index.html"),
         privacy: resolve(__dirname, "privacy/index.html"),

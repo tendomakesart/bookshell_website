@@ -1,5 +1,5 @@
 type HeaderProps = {
-  active: "home" | "sales" | "privacy" | "roadmap" | "changelog" | "press" | "contact";
+  active: "home" | "features" | "sales" | "privacy" | "roadmap" | "changelog" | "press" | "contact";
 };
 
 export function Header({ active }: HeaderProps) {
@@ -12,6 +12,9 @@ export function Header({ active }: HeaderProps) {
       <nav className="site-nav" aria-label="Primary navigation">
         <a aria-current={active === "home" ? "page" : undefined} href="/">
           Home
+        </a>
+        <a aria-current={active === "features" ? "page" : undefined} href="/features/">
+          Features
         </a>
         <a aria-current={active === "sales" ? "page" : undefined} href="/sales/">
           Early Access

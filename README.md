@@ -18,6 +18,7 @@ npm.cmd run preview
 ## Pages
 
 - `/` landing page
+- `/features/` feature directory
 - `/sales/` early-access sales page
 - `/privacy/` privacy skeleton
 - `/roadmap/` roadmap skeleton

@@ -9,11 +9,11 @@ createRoot(document.getElementById("root") as HTMLElement).render(
       active="privacy"
       eyebrow="Privacy"
       title="Local-first by default."
-      lede="BookShell is being built around local files, local notes, and no cloud library requirement."
+      lede="BookShell is being built around local files, local notes, local music, offline-friendly reading, and no required cloud library."
       cards={[
-        { title: "Files stay yours", copy: "The product direction keeps EPUBs, PDFs, annotations, and reading state on-device by default." },
-        { title: "No account wall", copy: "Early access messaging is not a promise of required cloud accounts or public reader profiles." },
-        { title: "Optional discovery later", copy: "Any future discovery layer should be explicit, opt-in, and explain what leaves the device." }
+        { title: "Files stay yours", copy: "EPUBs, PDFs, reading history, notes, highlights, and user-imported music stay local by default." },
+        { title: "No account wall", copy: "BookShell is positioned around no required cloud sync, no public profiles, and no follower graph." },
+        { title: "Clear discovery controls", copy: "Optional anonymous discovery should explain what leaves your device and provide cache/data clearing controls." }
       ]}
     />
   </StrictMode>

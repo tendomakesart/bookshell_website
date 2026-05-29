@@ -67,7 +67,7 @@ export function LandingPage() {
             <p className="eyebrow">Local-first Windows reader for power readers</p>
             <h1>BookShell turns your reading stack into a quiet, useful room.</h1>
             <p className="hero-lede">
-              A local-first Windows reader for EPUBs, PDFs, annotations, Shell Notes, and reading soundtracks.
+              A local-first desktop EPUB/PDF reader for beautiful reading, powerful notes, private discovery, and reading soundtracks.
             </p>
             <div className="hero-actions">
               <WaitlistForm />
@@ -89,7 +89,7 @@ export function LandingPage() {
         <section className="proof-strip" aria-label="BookShell highlights">
           <span>Windows app</span>
           <span>Local-first library</span>
-          <span>EPUB, PDF, notes, and exports</span>
+          <span>EPUB, PDF, soundtracks, and exports</span>
         </section>
 
         <section className="feature-grid" aria-label="BookShell features">
@@ -112,6 +112,17 @@ export function LandingPage() {
               <span key={item}>{item}</span>
             ))}
           </div>
+        </section>
+
+        <section className="split-band">
+          <div>
+            <p className="eyebrow">Power without the cloud leash</p>
+            <h2>Read, mark, search, export, and discover without surrendering the shelf.</h2>
+          </div>
+          <p>
+            BookShell is designed around local files, local notes, local music, keyboard-first navigation, exportable data,
+            and optional anonymous discovery instead of public profiles or follower pressure.
+          </p>
         </section>
 
         <section className="mockup-gallery-section" aria-label="BookShell app surfaces">

@@ -43,7 +43,7 @@ const readingLoop = [
   ["Export", "Copy notes, citations, quote cards, or Markdown."]
 ];
 
-const trustMarks = ["Windows desktop app", "Local-first library", "EPUB + PDF workflows", "No store shelf", "Reader themes", "Export-ready notes"];
+const trustMarks = ["Windows-first app", "Local files stay local", "EPUB + PDF workflows", "No public profile", "Reader themes", "Export-ready notes"];
 
 const proofCards = [
   {
@@ -57,6 +57,10 @@ const proofCards = [
   {
     title: "Reading soundtrack",
     copy: "Genre and mood tracks create a quiet reading atmosphere without making the interface loud."
+  },
+  {
+    title: "Private discovery",
+    copy: "Local-first recommendations can use reading history, annotations, collections, and mood tags without a follower graph."
   }
 ];
 
@@ -88,6 +92,10 @@ const faqs = [
   {
     question: "Can I export notes?",
     answer: "Yes. Shell Notes, citations, Pearls, quote cards, and Markdown-style exports are core to the reading loop."
+  },
+  {
+    question: "Will BookShell support accessibility profiles?",
+    answer: "Yes. Low-vision, dyslexia-friendly, migraine-friendly, high-contrast, large UI, keyboard, screen-reader, and reduced-motion support are part of the product direction."
   },
   {
     question: "Is there pricing yet?",

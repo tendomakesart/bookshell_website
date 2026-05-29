@@ -26,6 +26,33 @@ const featureTiles = [
   }
 ];
 
+const privacyMarks = ["Local-first", "No account required", "Notes stay on-device", "Windows first"];
+
+const worksWith = ["EPUB", "PDF", "Local audio files", "Markdown export", "Citations", "Quote cards"];
+
+const galleryPanels = [
+  {
+    label: "Library",
+    title: "A local shelf that remembers what you were doing.",
+    copy: "Progress, reading state, metadata, and active books stay close without turning the app into a file dump."
+  },
+  {
+    label: "Reader",
+    title: "A tuned page for long sessions.",
+    copy: "Reader themes, margins, typography, and quiet chrome keep the book in front instead of the software."
+  },
+  {
+    label: "Shell Notes",
+    title: "The study panel after the chapter.",
+    copy: "Highlights, bookmarks, Pearls, citations, and notes gather into exportable review material."
+  },
+  {
+    label: "Soundtrack dock",
+    title: "Atmosphere when focus needs a little help.",
+    copy: "Pair reading sessions with local soundtrack moods while keeping the library private and local-first."
+  }
+];
+
 export function LandingPage() {
   return (
     <>
@@ -36,17 +63,23 @@ export function LandingPage() {
             <p className="eyebrow">Local-first Windows reader for power readers</p>
             <h1>BookShell turns your reading stack into a quiet, useful room.</h1>
             <p className="hero-lede">
-              A desktop EPUB and PDF reader with a beautiful local library, tuned reading surface, Shell Notes, Pearls,
-              and exports for the passages you actually want to find again.
+              A local-first Windows reader for EPUBs, PDFs, annotations, Shell Notes, and reading soundtracks.
             </p>
             <div className="hero-actions">
               <WaitlistForm />
               <a className="secondary-link" href="/sales/">
-                See how BookShell works
+                Explore the reader
               </a>
             </div>
+            <p className="hero-trust-line">No account required. No cloud library by default. Your files stay yours.</p>
           </div>
           <ProductMockup />
+        </section>
+
+        <section className="privacy-strip" aria-label="BookShell privacy promises">
+          {privacyMarks.map((mark) => (
+            <span key={mark}>{mark}</span>
+          ))}
         </section>
 
         <section className="proof-strip" aria-label="BookShell highlights">
@@ -63,6 +96,34 @@ export function LandingPage() {
               <p>{feature.copy}</p>
             </article>
           ))}
+        </section>
+
+        <section className="works-with-section" aria-label="Supported BookShell workflows">
+          <div className="section-heading">
+            <p className="eyebrow">Works with</p>
+            <h2>Built around the reading stack people already have.</h2>
+          </div>
+          <div className="works-with-grid">
+            {worksWith.map((item) => (
+              <span key={item}>{item}</span>
+            ))}
+          </div>
+        </section>
+
+        <section className="mockup-gallery-section" aria-label="BookShell app surfaces">
+          <div className="section-heading">
+            <p className="eyebrow">App surfaces</p>
+            <h2>From local shelf to exportable thinking.</h2>
+          </div>
+          <div className="mockup-gallery">
+            {galleryPanels.map((panel) => (
+              <article className="gallery-panel" key={panel.title}>
+                <span>{panel.label}</span>
+                <h3>{panel.title}</h3>
+                <p>{panel.copy}</p>
+              </article>
+            ))}
+          </div>
         </section>
 
         <section className="split-band">

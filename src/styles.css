@@ -34,7 +34,7 @@
   --font-display: "BookShell Montserrat", "BookShell Arimo", Aptos, "Segoe UI", sans-serif;
   --font-reader: "BookShell Merriweather", Georgia, "Times New Roman", serif;
   --ink: #24201c;
-  --muted: #665f55;
+  --muted: #554c42;
   --soft: #8a7c69;
   --page: #fff8ee;
   --paper: #f6f3ed;
@@ -45,7 +45,7 @@
   --accent: #5c6f99;
   --ember: #d06a1d;
   --gold: #d7ad55;
-  --green: #566f58;
+  --green: #3f6547;
   --radius: 8px;
   --shadow-soft: 0 18px 42px rgba(24, 18, 12, 0.16);
   --shadow-panel: 0 8px 20px rgba(24, 18, 12, 0.1);
@@ -300,6 +300,13 @@ h3 {
 
 .form-error {
   color: #9d352c;
+}
+
+.hero-trust-line {
+  margin: 2px 0 0;
+  color: #4d453c;
+  font-size: 0.95rem;
+  font-weight: 750;
 }
 
 .sales-trust-row {
@@ -631,6 +638,7 @@ h3 {
 }
 
 .proof-strip,
+.privacy-strip,
 .loop-section {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
@@ -644,6 +652,7 @@ h3 {
 }
 
 .proof-strip span,
+.privacy-strip span,
 .loop-section span {
   min-height: 74px;
   display: grid;
@@ -653,6 +662,16 @@ h3 {
   padding: 16px;
   font-weight: 850;
   text-align: center;
+}
+
+.privacy-strip {
+  grid-template-columns: repeat(4, 1fr);
+  margin-bottom: 18px;
+}
+
+.privacy-strip span {
+  background: rgba(255, 252, 246, 0.88);
+  color: #3f382f;
 }
 
 .loop-section {
@@ -723,7 +742,8 @@ h3 {
 .pricing-band p,
 .faq-item p,
 .comparison-row p,
-.outcome p {
+.outcome p,
+.gallery-panel p {
   color: var(--muted);
   line-height: 1.65;
 }
@@ -790,9 +810,112 @@ h3 {
 
 .comparison-section,
 .faq-section,
-.proof-card-section {
+.proof-card-section,
+.works-with-section,
+.mockup-gallery-section {
   width: min(1180px, calc(100% - 32px));
   margin: 0 auto 72px;
+}
+
+.works-with-grid {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  gap: 1px;
+  overflow: hidden;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  background: var(--line);
+}
+
+.works-with-grid span {
+  display: grid;
+  min-height: 68px;
+  place-items: center;
+  background: #24201c;
+  color: #fff8ee;
+  padding: 12px;
+  font-weight: 900;
+  text-align: center;
+}
+
+.works-with-grid span:nth-child(even) {
+  background: #302a24;
+}
+
+.mockup-gallery {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1px;
+  overflow: hidden;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  background: var(--line);
+}
+
+.gallery-panel {
+  position: relative;
+  min-height: 310px;
+  background:
+    linear-gradient(180deg, rgba(255, 252, 246, 0.92), rgba(246, 243, 237, 0.84)),
+    url("/brand/paper-overlay-web.png");
+  background-size: auto, 560px auto;
+  padding: clamp(22px, 3vw, 30px);
+}
+
+.gallery-panel::after {
+  content: "";
+  position: absolute;
+  right: 24px;
+  bottom: 24px;
+  width: 74px;
+  height: 54px;
+  border: 1px solid var(--line-soft);
+  border-radius: var(--radius);
+  background:
+    linear-gradient(135deg, rgba(255, 255, 255, 0.22), transparent),
+    var(--accent);
+  box-shadow: inset 10px 0 0 rgba(36, 32, 28, 0.18);
+}
+
+.gallery-panel:nth-child(2)::after {
+  background-color: var(--page);
+  box-shadow:
+    inset 0 -8px 0 #d8cbb9,
+    inset 0 18px 0 rgba(92, 111, 153, 0.18);
+}
+
+.gallery-panel:nth-child(3)::after {
+  background-color: #fff1cb;
+  box-shadow:
+    inset 5px 0 0 var(--gold),
+    inset 0 -10px 0 rgba(215, 173, 85, 0.25);
+}
+
+.gallery-panel:nth-child(4)::after {
+  background-color: #302a24;
+  box-shadow:
+    inset 0 16px 0 rgba(255, 252, 246, 0.16),
+    inset 0 -12px 0 var(--ember);
+}
+
+.gallery-panel span {
+  display: inline-block;
+  margin-bottom: 18px;
+  color: var(--green);
+  font-size: 0.72rem;
+  font-weight: 900;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.gallery-panel h3 {
+  max-width: 270px;
+  font-size: clamp(1.35rem, 2.2vw, 1.9rem);
+  line-height: 1.1;
+}
+
+.gallery-panel p {
+  max-width: 280px;
 }
 
 .proof-card-grid {
@@ -943,8 +1066,13 @@ h3 {
 
   .feature-grid,
   .outcome-section,
-  .proof-card-grid {
+  .proof-card-grid,
+  .mockup-gallery {
     grid-template-columns: repeat(2, 1fr);
+  }
+
+  .works-with-grid {
+    grid-template-columns: repeat(3, 1fr);
   }
 }
 
@@ -970,17 +1098,20 @@ h3 {
 
   .field-row,
   .proof-strip,
+  .privacy-strip,
   .feature-grid,
   .outcome-section,
   .comparison-row,
   .faq-item,
   .library-mockup,
   .reader-workspace,
-  .proof-card-grid {
+  .proof-card-grid,
+  .mockup-gallery {
     grid-template-columns: 1fr;
   }
 
-  .loop-section {
+  .loop-section,
+  .works-with-grid {
     grid-template-columns: repeat(2, 1fr);
   }
 
@@ -1010,11 +1141,14 @@ h3 {
   .site-header,
   .hero-section,
   .proof-strip,
+  .privacy-strip,
   .feature-grid,
   .split-band,
   .outcome-section,
   .comparison-section,
   .faq-section,
+  .works-with-section,
+  .mockup-gallery-section,
   .site-footer {
     width: min(100% - 22px, 1180px);
   }

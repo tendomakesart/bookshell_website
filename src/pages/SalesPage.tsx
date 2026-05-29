@@ -61,11 +61,31 @@ const proofCards = [
 const faqs = [
   {
     question: "Is BookShell available now?",
-    answer: "BookShell is preparing early access. The waitlist is the first place for launch invites and reader updates."
+    answer: "BookShell is preparing early access for Windows. The early-access list is the first place for launch availability, founder pricing, and development updates."
+  },
+  {
+    question: "Is BookShell Windows only?",
+    answer: "Windows is first. The current product direction is a local-first desktop reader before any broader platform expansion."
   },
   {
     question: "Will it support both EPUB and PDF?",
     answer: "Yes. BookShell is focused on EPUB and PDF reading, with local library control, annotations, and export workflows."
+  },
+  {
+    question: "What about DRM-protected books?",
+    answer: "BookShell is designed for local EPUB and PDF files. DRM-protected books from locked storefronts may not open unless exported in a supported, readable format."
+  },
+  {
+    question: "Does BookShell upload my books or notes?",
+    answer: "No cloud library is required by default. BookShell is being built around local files, local notes, and on-device reading workflows."
+  },
+  {
+    question: "Can I use my own music?",
+    answer: "The product direction includes local audio and reading soundtrack moods, so your focus setup can live beside the reader."
+  },
+  {
+    question: "Can I export notes?",
+    answer: "Yes. Shell Notes, citations, Pearls, quote cards, and Markdown-style exports are core to the reading loop."
   },
   {
     question: "Is there pricing yet?",
@@ -85,10 +105,10 @@ export function SalesPage() {
         <section className="hero-section sales-hero sales-hero-tuned">
           <div className="hero-copy">
             <p className="eyebrow">BookShell early access</p>
-            <h1>A reading room for books that need to leave evidence.</h1>
+            <h1>A private reading room for EPUBs, PDFs, notes, and soundtracks.</h1>
             <p className="hero-lede">
-              BookShell is a local-first Windows reader for EPUBs, PDFs, Shell Notes, Pearls, quote cards, soundtrack moods,
-              and the ideas that survive a hard reading session.
+              For books that need to leave evidence: highlights, Pearls, citations, review notes, quote cards,
+              and exportable thinking.
             </p>
             <div className="sales-trust-row" aria-label="BookShell product facts">
               {trustMarks.slice(0, 3).map((mark) => (
@@ -134,7 +154,7 @@ export function SalesPage() {
         <section className="proof-card-section">
           <div className="section-heading">
             <p className="eyebrow">Actual app shape</p>
-            <h2>The sales story is the product loop.</h2>
+            <h2>The product story is the reading loop.</h2>
           </div>
           <div className="proof-card-grid">
             {proofCards.map((card) => (
@@ -174,8 +194,8 @@ export function SalesPage() {
           </div>
           <div>
             <p>
-              BookShell is not announcing final pricing yet. Waitlist readers will see the app direction, launch offer,
-              and early-access availability first. No invented tiers, no pretend checkout, just the list for serious readers.
+              BookShell is preparing early access for Windows. Join the list for launch availability, founder pricing,
+              and development updates. No account wall, no fake checkout, no cloud requirement.
             </p>
             <WaitlistForm compact />
           </div>

@@ -14,7 +14,7 @@ export function Header({ active }: HeaderProps) {
           Home
         </a>
         <a aria-current={active === "sales" ? "page" : undefined} href="/sales/">
-          Sales
+          Early Access
         </a>
       </nav>
     </header>

@@ -8,7 +8,7 @@ export function Footer() {
       <p>A local-first Windows reading room for EPUBs, PDFs, Shell Notes, Pearls, and quiet focus.</p>
       <nav aria-label="Footer navigation">
         <a href="/">Home</a>
-        <a href="/sales/">Sales</a>
+        <a href="/sales/">Early Access</a>
       </nav>
     </footer>
   );

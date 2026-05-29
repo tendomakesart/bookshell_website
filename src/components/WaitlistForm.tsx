@@ -17,7 +17,7 @@ export function WaitlistForm({ compact = false }: WaitlistFormProps) {
 
     if (!isValidEmail(trimmed)) {
       setSuccess(false);
-      setError("Enter a valid email to join the waitlist.");
+      setError("Enter a valid email to join early access.");
       return;
     }
 
@@ -42,13 +42,13 @@ export function WaitlistForm({ compact = false }: WaitlistFormProps) {
           aria-invalid={error ? "true" : "false"}
           aria-describedby={`${emailId}-message`}
         />
-        <button type="submit">Join the waitlist</button>
+        <button type="submit">Join early access</button>
       </div>
       <p id={`${emailId}-message`} className={`form-message ${error ? "form-error" : ""}`} aria-live="polite">
         {error ||
           (success
-            ? "You are on the early-access list. BookShell will follow up when invites open."
-            : "Early access for readers who want EPUBs, PDFs, and notes in one calm workspace.")}
+            ? "You're on the list. I'll send early access updates when BookShell is ready."
+            : "Early access for readers who want EPUBs, PDFs, Shell Notes, and soundtracks in one calm workspace.")}
       </p>
     </form>
   );

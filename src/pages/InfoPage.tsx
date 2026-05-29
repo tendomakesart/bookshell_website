@@ -2,10 +2,11 @@ import { AmbientBackdrop } from "../components/AmbientBackdrop";
 import { Footer } from "../components/Footer";
 import { Header } from "../components/Header";
 import { WebsiteSplash } from "../components/WebsiteSplash";
+import type { ReactNode } from "react";
 
 type InfoPageProps = {
   active: "privacy" | "roadmap" | "changelog" | "press" | "contact";
-  cards: Array<{ title: string; copy: string }>;
+  cards: Array<{ title: string; copy: ReactNode }>;
   eyebrow: string;
   lede: string;
   title: string;

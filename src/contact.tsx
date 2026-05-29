@@ -9,11 +9,18 @@ createRoot(document.getElementById("root") as HTMLElement).render(
       active="contact"
       eyebrow="Contact"
       title="Reach BookShell."
-      lede="This page will point readers, testers, and press toward the right contact path once early access opens."
+      lede="Questions, early-access notes, support, and press can all start here."
       cards={[
+        {
+          title: "Email",
+          copy: (
+            <>
+              Reach BookShell at <a href="mailto:contact@bookshell.net">contact@bookshell.net</a>.
+            </>
+          )
+        },
         { title: "Early access", copy: "Use the Early Access page for launch availability and development updates." },
-        { title: "Press", copy: "Press and media details will be routed through the media kit once screenshots are ready." },
-        { title: "Support", copy: "Support contact details will be added when the first public build is available." }
+        { title: "Press and support", copy: "Press questions, bug reports, support notes, and reader feedback can use the same contact address for now." }
       ]}
     />
   </StrictMode>

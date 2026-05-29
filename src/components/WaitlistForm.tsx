@@ -7,9 +7,12 @@ type WaitlistFormProps = {
 
 export function WaitlistForm({ compact = false }: WaitlistFormProps) {
   const emailId = useId();
+  const websiteId = useId();
   const [email, setEmail] = useState("");
   const [error, setError] = useState("");
+  const [isSubmitting, setIsSubmitting] = useState(false);
   const [success, setSuccess] = useState(false);
+  const [website, setWebsite] = useState("");
 
   async function handleSubmit(event: FormEvent<HTMLFormElement>) {
     event.preventDefault();
@@ -21,10 +24,19 @@ export function WaitlistForm({ compact = false }: WaitlistFormProps) {
       return;
     }
 
-    await joinWaitlist(trimmed);
-    setError("");
-    setSuccess(true);
-    setEmail("");
+    setIsSubmitting(true);
+    try {
+      await joinWaitlist(trimmed, website);
+      setError("");
+      setSuccess(true);
+      setEmail("");
+      setWebsite("");
+    } catch (submissionError) {
+      setSuccess(false);
+      setError(submissionError instanceof Error ? submissionError.message : "That email did not go through. Please try again.");
+    } finally {
+      setIsSubmitting(false);
+    }
   }
 
   return (
@@ -42,7 +54,18 @@ export function WaitlistForm({ compact = false }: WaitlistFormProps) {
           aria-invalid={error ? "true" : "false"}
           aria-describedby={`${emailId}-message`}
         />
-        <button type="submit">Join early access</button>
+        <label className="waitlist-honeypot" htmlFor={websiteId} aria-hidden="true">
+          Website
+          <input
+            id={websiteId}
+            type="text"
+            value={website}
+            onChange={(event) => setWebsite(event.target.value)}
+            tabIndex={-1}
+            autoComplete="off"
+          />
+        </label>
+        <button type="submit" disabled={isSubmitting}>{isSubmitting ? "Joining..." : "Join early access"}</button>
       </div>
       <p id={`${emailId}-message`} className={`form-message ${error ? "form-error" : ""}`} aria-live="polite">
         {error ||

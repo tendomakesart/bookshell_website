@@ -28,14 +28,31 @@ npm.cmd run preview
 
 ## Launch Notes
 
-- The waitlist form is static-only for now. It validates email and shows a local success state.
-- Wire the real provider in `src/waitlist.ts` when the waitlist backend is chosen.
+- The waitlist form posts to `/api/waitlist`, a Cloudflare Pages Function in `functions/api/waitlist.js`.
+- The current provider is Buttondown. Set `BUTTONDOWN_API_KEY` as an encrypted Cloudflare Pages secret before launch.
+- Optional: set `BUTTONDOWN_TAG` to override the default `bookshell-early-access` subscriber tag.
 - Build output is static and deployable from `dist/`.
 - Canonical and social metadata are configured for `https://bookshell.net/`.
 
+## Waitlist Setup
+
+1. Create or open the BookShell newsletter/list in Buttondown.
+2. Create an API key in Buttondown.
+3. In Cloudflare, open Workers & Pages -> BookShell project -> Settings -> Variables and Secrets.
+4. Add `BUTTONDOWN_API_KEY` as an encrypted secret.
+5. Add `BUTTONDOWN_TAG` as a plain variable only if you want a different tag.
+6. Redeploy the Pages project so the Function receives the new secret.
+
+For local function testing, use Cloudflare's Pages dev runtime rather than plain Vite preview:
+
+```powershell
+npx wrangler pages dev dist --binding BUTTONDOWN_API_KEY=your_test_key
+```
+
 ## Pre-Launch Checklist
 
-- Replace static waitlist helper with a real endpoint.
+- Set `BUTTONDOWN_API_KEY` in Cloudflare Pages.
+- Submit a test email on `bookshell.net` and confirm it appears in Buttondown.
 - Point `bookshell.net` and `www.bookshell.net` at the chosen static host.
 - Enable HTTPS for both apex and `www`.
 - Run `npm.cmd run build`.

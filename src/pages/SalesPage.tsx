@@ -3,6 +3,7 @@ import { Footer } from "../components/Footer";
 import { Header } from "../components/Header";
 import { ProductMockup } from "../components/ProductMockup";
 import { WaitlistForm } from "../components/WaitlistForm";
+import { WebsiteSplash } from "../components/WebsiteSplash";
 
 const outcomes = [
   {
@@ -101,6 +102,7 @@ const faqs = [
 export function SalesPage() {
   return (
     <>
+      <WebsiteSplash />
       <AmbientBackdrop />
       <Header active="sales" />
       <main className="sales-page">

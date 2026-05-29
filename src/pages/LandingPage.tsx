@@ -3,6 +3,7 @@ import { Footer } from "../components/Footer";
 import { Header } from "../components/Header";
 import { ProductMockup } from "../components/ProductMockup";
 import { WaitlistForm } from "../components/WaitlistForm";
+import { WebsiteSplash } from "../components/WebsiteSplash";
 
 const featureTiles = [
   {
@@ -57,6 +58,7 @@ const galleryPanels = [
 export function LandingPage() {
   return (
     <>
+      <WebsiteSplash />
       <AmbientBackdrop />
       <Header active="home" />
       <main>

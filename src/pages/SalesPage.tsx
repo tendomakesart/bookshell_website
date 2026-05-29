@@ -9,22 +9,22 @@ const outcomes = [
   {
     label: "Library",
     title: "Your files stay the center.",
-    copy: "The actual library home starts with local search, import, command access, collections, and your books on the same warm surface."
+    copy: "The library home keeps local search, import, command access, collections, discovery, Pearls, tools, and settings in one shell."
   },
   {
     label: "Reader",
     title: "The page gets the room.",
-    copy: "The audit reader capture keeps the book central and pushes controls to the edges so the page carries the session."
+    copy: "The maximized reader capture keeps the book central and pushes controls to the edges so the page carries the session."
   },
   {
     label: "Study",
     title: "Notes become review material.",
-    copy: "Command, settings, privacy, and power panels use the same shell language, which gives notes and exports a consistent home."
+    copy: "Book details, Review Mode, Pearls, tags, and Artifact Studio turn marked passages into review material and share pieces."
   },
   {
     label: "Atmosphere",
     title: "Focus can have texture.",
-    copy: "The warm app theme, paper surfaces, quiet chrome, and reading soundtrack direction give the product its room-like feel."
+    copy: "Mood calibration, soundtrack pairings, private discovery, and theme choices give the product its room-like feel."
   }
 ];
 
@@ -48,23 +48,23 @@ const trustMarks = ["Windows-first app", "Local files stay local", "EPUB + PDF w
 const proofCards = [
   {
     title: "Shell Notes",
-    copy: "A book-level study panel for highlights, bookmarks, notebook text, Pearls, citations, and export formats.",
-    image: "/app-screenshots/command-palette.png"
+    copy: "Book details frame notes, review state, mood tags, and export actions around the source instead of letting them drift away.",
+    image: "/app-screenshots/book-details.png"
   },
   {
     title: "Pearls",
-    copy: "Favorite passages can be marked as the distilled essence of a book, ready for review or quote-card output.",
-    image: "/app-screenshots/reader-default.png"
+    copy: "Signature shelves make favorite passages, unfinished reads, mixtapes, and review mode feel like living parts of the library.",
+    image: "/app-screenshots/library-signature-dark.png"
   },
   {
     title: "Reading soundtrack",
-    copy: "Genre and mood tracks create a quiet reading atmosphere without making the interface loud.",
-    image: "/app-screenshots/settings-panel.png"
+    copy: "Mood calibration and soundtrack pairings connect local music to the current reading session without uploading the shelf.",
+    image: "/app-screenshots/mood-calibration.png"
   },
   {
     title: "Private discovery",
-    copy: "Local-first recommendations can use reading history, annotations, collections, and mood tags without a follower graph.",
-    image: "/app-screenshots/privacy-panel.png"
+    copy: "Recommendation cards use local shelf signals, tags, sessions, and soundtrack mood without a follower graph.",
+    image: "/app-screenshots/library-recommendations-dark.png"
   }
 ];
 

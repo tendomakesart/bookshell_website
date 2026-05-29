@@ -8,19 +8,19 @@ const featureGroups = [
     title: "Reading Experience",
     copy: "EPUB and PDF reading with paged or continuous scroll modes, single-page or two-page spreads, smooth navigation, table-of-contents support, progress display, time-left estimates, fullscreen focus, and per-book layout memory.",
     items: ["EPUB + PDF", "Paged or scroll", "Two-page spread", "Resume position", "Reader profiles"],
-    image: "/app-screenshots/reader-default.png"
+    image: "/app-screenshots/reader-maximized.png"
   },
   {
     title: "PDF Markup",
     copy: "PDF zoom, fit modes, thumbnails, outline navigation, search, bookmarks, highlights, underline/wavy/strike styles, sticky notes, freehand markup, shapes, crop memory, OCR, clean scan mode, and annotation export.",
     items: ["OCR", "Crop memory", "Clean scans", "Freehand markup", "Burn-in export"],
-    image: "/app-screenshots/library-home.png"
+    image: "/app-screenshots/book-details.png"
   },
   {
     title: "Library Management",
     copy: "A beautiful local library with cover/list/compact views, smart shelves, collections, metadata editing, series and author organization, duplicate detection, folder watching, drag-and-drop import, health checks, and a cover wall.",
     items: ["Smart shelves", "Bulk metadata", "Folder watch", "Health panel", "Cover wall"],
-    image: "/app-screenshots/library-home.png"
+    image: "/app-screenshots/library-home-dark.png"
   },
   {
     title: "Search and Navigation",
@@ -32,25 +32,25 @@ const featureGroups = [
     title: "Notes, Shell Notes, and Pearls",
     copy: "Highlights, notes, tags, filters, snapshots, annotation repair, export formats, book-level notebooks, citations, Pearls, review notes, Markdown study sheets, and cross-library Pearl shelves.",
     items: ["Shell Notes", "Pearls", "Snapshots", "Markdown export", "Portable data"],
-    image: "/app-screenshots/command-palette.png"
+    image: "/app-screenshots/library-signature-dark.png"
   },
   {
     title: "Soundtracks and TTS",
     copy: "A launch sound library, local music import, mood tagging, per-book or per-profile playlists, soundtrack dock, gapless loops, crossfade, TTS mini-player, sentence highlighting, sleep timer, and music ducking.",
     items: ["55-ish launch tracks", "Local music", "Mood tags", "Read aloud", "Music ducking"],
-    image: "/app-screenshots/settings-panel.png"
+    image: "/app-screenshots/mood-calibration.png"
   },
   {
     title: "Private Discovery",
     copy: "Local-first recommendations from your metadata, reading history, abandonment patterns, collections, annotation themes, mood tags, and soundtrack profiles, with optional anonymous aggregate discovery and no follower graph.",
     items: ["Read next", "Return to this", "Anonymous pulse", "No public profile", "Explainable suggestions"],
-    image: "/app-screenshots/privacy-panel.png"
+    image: "/app-screenshots/library-recommendations-dark.png"
   },
   {
     title: "Export and Interop",
     copy: "Takeout-friendly local exports for metadata, annotations, covers, settings, collections, tags, reading positions, Markdown, JSON, CSV, TXT, BibTeX, CSL JSON, Obsidian, Notion, Readwise, Zotero, Calibre, OPDS, and deep links.",
     items: ["Export everything", "Markdown/JSON/CSV", "BibTeX/CSL", "Obsidian/Notion", "Deep links"],
-    image: "/app-screenshots/settings-panel.png"
+    image: "/app-screenshots/artifact-studio-cover-wall.png"
   },
   {
     title: "Accessibility and Polish",

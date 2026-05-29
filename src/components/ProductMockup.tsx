@@ -11,7 +11,7 @@ export function ProductMockup({ variant = "library" }: ProductMockupProps) {
         src={isLibrary ? "/app-screenshots/library-home.png" : "/app-screenshots/reader-maximized.png"}
         alt={isLibrary ? "BookShell library home with local books and navigation." : "BookShell reader showing a focused EPUB reading surface."}
       />
-      <figcaption>{isLibrary ? "Real audit capture: library home" : "Real audit capture: reader workspace"}</figcaption>
+      <figcaption>{isLibrary ? "Full tour audit: library home" : "Full tour audit: reader workspace"}</figcaption>
     </figure>
   );
 }

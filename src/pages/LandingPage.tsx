@@ -9,26 +9,26 @@ const featureTiles = [
   {
     eyebrow: "Local-first library",
     title: "A Windows reading room that starts with your files.",
-    copy: "The real app opens on a warm local shelf: import, command palette, collections, Pearls, discovery, tools, and settings sit beside the books instead of above them.",
-    image: "/app-screenshots/library-home.png"
+    copy: "The full audit opens on a dark local shelf: import, command palette, collections, Pearls, discovery, tools, and settings sit beside the books instead of above them.",
+    image: "/app-screenshots/library-home-dark.png"
   },
   {
-    eyebrow: "Reader control",
-    title: "Typography and themes are part of the reading surface.",
-    copy: "The audit reader capture keeps the page central, with quiet page turns and a muted reading surface built for long sessions.",
-    image: "/app-screenshots/reader-default.png"
+    eyebrow: "Personal shelves",
+    title: "The library grows shelves from your reading behavior.",
+    copy: "Signature shelves gather Pearls, review mode, mixtapes, mood tags, and unfinished reads into a calm studio instead of another flat file grid.",
+    image: "/app-screenshots/library-signature-dark.png"
   },
   {
-    eyebrow: "Shell Notes",
-    title: "Highlights become something useful after the chapter ends.",
-    copy: "Command and panel surfaces share the same shell language, so notes, search, settings, and power tools feel like part of one room.",
-    image: "/app-screenshots/command-palette.png"
+    eyebrow: "Private discovery",
+    title: "Recommendations can feel alive without becoming social media.",
+    copy: "Local shelf signals, mood tags, soundtrack pairings, and timeline cards shape discovery without uploads, accounts, or public profiles.",
+    image: "/app-screenshots/library-recommendations-dark.png"
   },
   {
     eyebrow: "Reading atmosphere",
-    title: "The app can fade back while the room stays alive.",
-    copy: "Privacy and settings panels use the same warm material system as the library, keeping power-reader controls calm instead of clinical.",
-    image: "/app-screenshots/privacy-panel.png"
+    title: "The app can tune the room around the session.",
+    copy: "Mood calibration connects local tags, Pearls, sessions, and soundtrack mood so long reading has texture without noise.",
+    image: "/app-screenshots/mood-calibration.png"
   }
 ];
 
@@ -38,16 +38,16 @@ const worksWith = ["EPUB", "PDF", "Local audio files", "Markdown export", "Citat
 
 const galleryPanels = [
   {
-    label: "Library",
-    title: "A local shelf that remembers what you were doing.",
-    copy: "The library capture shows the app’s actual shell: logo, command entry, import, local search, collections, and shelf navigation.",
-    image: "/app-screenshots/library-home.png"
+    label: "Details",
+    title: "A book can become a small workspace.",
+    copy: "Book details collect progress, bookmarks, review notes, tags, mood calibration, and export actions around the source file.",
+    image: "/app-screenshots/book-details.png"
   },
   {
     label: "Reader",
     title: "A tuned page for long sessions.",
-    copy: "The reader capture puts the book in the center and leaves chrome at the edges, matching the hidden-chrome promise.",
-    image: "/app-screenshots/reader-default.png"
+    copy: "The maximized reader capture puts the book in the center and leaves chrome at the edges, matching the hidden-chrome promise.",
+    image: "/app-screenshots/reader-maximized.png"
   },
   {
     label: "Command",
@@ -56,11 +56,18 @@ const galleryPanels = [
     image: "/app-screenshots/command-palette.png"
   },
   {
-    label: "Privacy",
-    title: "Trust controls belong in the main shell.",
-    copy: "The privacy panel grounds the site’s local-first promise in an actual app surface instead of abstract copy.",
-    image: "/app-screenshots/privacy-panel.png"
+    label: "Artifacts",
+    title: "Share pieces are local until you choose otherwise.",
+    copy: "Artifact Studio previews quote cards and cover-wall exports without posting for you or leaking private library context.",
+    image: "/app-screenshots/artifact-studio-cover-wall.png"
   }
+];
+
+const themePanels = [
+  ["Dark", "/app-screenshots/library-home-dark.png"],
+  ["Warm", "/app-screenshots/library-home-warm.png"],
+  ["Sepia", "/app-screenshots/library-home-sepia.png"],
+  ["Light", "/app-screenshots/library-home-light.png"]
 ];
 
 export function LandingPage() {
@@ -109,6 +116,21 @@ export function LandingPage() {
               <p>{feature.copy}</p>
             </article>
           ))}
+        </section>
+
+        <section className="theme-showcase-section" aria-label="BookShell themes">
+          <div className="section-heading">
+            <p className="eyebrow">Theme range</p>
+            <h2>The same shell language across dark, warm, sepia, and light.</h2>
+          </div>
+          <div className="theme-grid">
+            {themePanels.map(([label, image]) => (
+              <article className="theme-card" key={label}>
+                <img src={image} alt="" aria-hidden="true" />
+                <span>{label}</span>
+              </article>
+            ))}
+          </div>
         </section>
 
         <section className="works-with-section" aria-label="Supported BookShell workflows">

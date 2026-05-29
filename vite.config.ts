@@ -7,7 +7,12 @@ export default defineConfig({
   build: {
     rollupOptions: {
       input: {
+        changelog: resolve(__dirname, "changelog/index.html"),
+        contact: resolve(__dirname, "contact/index.html"),
         main: resolve(__dirname, "index.html"),
+        press: resolve(__dirname, "press/index.html"),
+        privacy: resolve(__dirname, "privacy/index.html"),
+        roadmap: resolve(__dirname, "roadmap/index.html"),
         sales: resolve(__dirname, "sales/index.html")
       }
     }

@@ -9,6 +9,11 @@ export function Footer() {
       <nav aria-label="Footer navigation">
         <a href="/">Home</a>
         <a href="/sales/">Early Access</a>
+        <a href="/privacy/">Privacy</a>
+        <a href="/roadmap/">Roadmap</a>
+        <a href="/changelog/">Changelog</a>
+        <a href="/press/">Press</a>
+        <a href="/contact/">Contact</a>
       </nav>
     </footer>
   );

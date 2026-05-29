@@ -1,5 +1,5 @@
 type HeaderProps = {
-  active: "home" | "sales";
+  active: "home" | "sales" | "privacy" | "roadmap" | "changelog" | "press" | "contact";
 };
 
 export function Header({ active }: HeaderProps) {
@@ -15,6 +15,12 @@ export function Header({ active }: HeaderProps) {
         </a>
         <a aria-current={active === "sales" ? "page" : undefined} href="/sales/">
           Early Access
+        </a>
+        <a aria-current={active === "roadmap" ? "page" : undefined} href="/roadmap/">
+          Roadmap
+        </a>
+        <a aria-current={active === "press" ? "page" : undefined} href="/press/">
+          Press
         </a>
       </nav>
     </header>

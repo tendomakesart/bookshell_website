@@ -19,6 +19,11 @@ npm.cmd run preview
 
 - `/` landing page
 - `/sales/` early-access sales page
+- `/privacy/` privacy skeleton
+- `/roadmap/` roadmap skeleton
+- `/changelog/` changelog skeleton
+- `/press/` media kit skeleton
+- `/contact/` contact skeleton
 
 ## Launch Notes
 

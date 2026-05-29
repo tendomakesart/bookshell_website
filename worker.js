@@ -10,6 +10,14 @@ function json(body, init = {}) {
   });
 }
 
+function hasAdminAccess(request, env) {
+  const expectedToken = env.WAITLIST_ADMIN_TOKEN;
+  const header = request.headers.get("Authorization") || "";
+  const submittedToken = header.startsWith("Bearer ") ? header.slice("Bearer ".length).trim() : "";
+
+  return Boolean(expectedToken && submittedToken && submittedToken === expectedToken);
+}
+
 async function handleWaitlistSignup(request, env) {
   let payload;
 
@@ -55,18 +63,62 @@ async function handleWaitlistSignup(request, env) {
   return json({ ok: true, storedRemotely: true });
 }
 
+async function handleWaitlistAdmin(request, env) {
+  if (!env.WAITLIST_ADMIN_TOKEN) {
+    return json({ error: "Waitlist admin is not configured yet." }, { status: 503 });
+  }
+
+  if (!hasAdminAccess(request, env)) {
+    return json({ error: "Unauthorized." }, { status: 401 });
+  }
+
+  if (!env.WAITLIST_DB) {
+    return json({ error: "Early access signup storage is not configured yet." }, { status: 503 });
+  }
+
+  const url = new URL(request.url);
+  const limit = Math.min(Math.max(Number(url.searchParams.get("limit")) || 200, 1), 500);
+
+  try {
+    const result = await env.WAITLIST_DB.prepare(
+      `select email, source, tag, created_at, updated_at
+       from waitlist_signups
+       order by created_at desc
+       limit ?`
+    )
+      .bind(limit)
+      .all();
+
+    return json({
+      ok: true,
+      count: result.results.length,
+      signups: result.results
+    });
+  } catch {
+    return json({ error: "Could not load waitlist signups." }, { status: 502 });
+  }
+}
+
 export default {
   async fetch(request, env) {
     const url = new URL(request.url);
 
-    if (url.pathname === "/api/waitlist") {
+    if (url.pathname === "/api/waitlist" || url.pathname === "/api/waitlist/admin") {
       if (request.method === "OPTIONS") {
         return new Response(null, {
           headers: {
-            Allow: "POST, OPTIONS"
+            Allow: url.pathname === "/api/waitlist/admin" ? "GET, OPTIONS" : "POST, OPTIONS"
           },
           status: 204
         });
+      }
+
+      if (url.pathname === "/api/waitlist/admin") {
+        if (request.method === "GET") {
+          return handleWaitlistAdmin(request, env);
+        }
+
+        return json({ error: "Method not allowed." }, { status: 405, headers: { Allow: "GET" } });
       }
 
       if (request.method === "POST") {

@@ -9,22 +9,22 @@ const outcomes = [
   {
     label: "Library",
     title: "Your files stay the center.",
-    copy: "Import EPUBs and PDFs into a local Windows library with progress, metadata, reading state, and shelves."
+    copy: "The actual library home starts with local search, import, command access, collections, and your books on the same warm surface."
   },
   {
     label: "Reader",
     title: "The page gets the room.",
-    copy: "Tune typography, margins, themes, page mode, and chrome visibility for long sessions without visual clutter."
+    copy: "The audit reader capture keeps the book central and pushes controls to the edges so the page carries the session."
   },
   {
     label: "Study",
     title: "Notes become review material.",
-    copy: "Turn highlights into Pearls, Shell Notes, citations, quote cards, and exports that point back to the source."
+    copy: "Command, settings, privacy, and power panels use the same shell language, which gives notes and exports a consistent home."
   },
   {
     label: "Atmosphere",
     title: "Focus can have texture.",
-    copy: "Use read-aloud, soundtrack moods, page-rustle polish, and accessibility profiles when the session needs support."
+    copy: "The warm app theme, paper surfaces, quiet chrome, and reading soundtrack direction give the product its room-like feel."
   }
 ];
 
@@ -48,19 +48,23 @@ const trustMarks = ["Windows-first app", "Local files stay local", "EPUB + PDF w
 const proofCards = [
   {
     title: "Shell Notes",
-    copy: "A book-level study panel for highlights, bookmarks, notebook text, Pearls, citations, and export formats."
+    copy: "A book-level study panel for highlights, bookmarks, notebook text, Pearls, citations, and export formats.",
+    image: "/app-screenshots/command-palette.png"
   },
   {
     title: "Pearls",
-    copy: "Favorite passages can be marked as the distilled essence of a book, ready for review or quote-card output."
+    copy: "Favorite passages can be marked as the distilled essence of a book, ready for review or quote-card output.",
+    image: "/app-screenshots/reader-default.png"
   },
   {
     title: "Reading soundtrack",
-    copy: "Genre and mood tracks create a quiet reading atmosphere without making the interface loud."
+    copy: "Genre and mood tracks create a quiet reading atmosphere without making the interface loud.",
+    image: "/app-screenshots/settings-panel.png"
   },
   {
     title: "Private discovery",
-    copy: "Local-first recommendations can use reading history, annotations, collections, and mood tags without a follower graph."
+    copy: "Local-first recommendations can use reading history, annotations, collections, and mood tags without a follower graph.",
+    image: "/app-screenshots/privacy-panel.png"
   }
 ];
 
@@ -103,7 +107,7 @@ const faqs = [
   },
   {
     question: "Does the form store my email?",
-    answer: "This site prototype validates the email and shows a local success state. A real waitlist provider can be connected through the waitlist helper."
+    answer: "Yes. The current site stores early-access signups in a private Cloudflare D1 waitlist controlled by BookShell."
   }
 ];
 
@@ -171,6 +175,7 @@ export function SalesPage() {
           <div className="proof-card-grid">
             {proofCards.map((card) => (
               <article className="proof-card" key={card.title}>
+                <img src={card.image} alt="" aria-hidden="true" />
                 <h3>{card.title}</h3>
                 <p>{card.copy}</p>
               </article>

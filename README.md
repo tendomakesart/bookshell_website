@@ -18,6 +18,7 @@ npm.cmd run preview
 ## Pages
 
 - `/` landing page
+- `/admin/` unlinked waitlist admin viewer
 - `/features/` feature directory
 - `/sales/` early-access sales page
 - `/privacy/` privacy skeleton
@@ -30,6 +31,7 @@ npm.cmd run preview
 
 - The waitlist form posts to `/api/waitlist`.
 - The production waitlist stores signups in Cloudflare D1 through the `WAITLIST_DB` binding.
+- The unlinked `/admin/` viewer reads from `/api/waitlist/admin` and requires `WAITLIST_ADMIN_TOKEN`.
 - Optional: set `WAITLIST_TAG` to override the default `bookshell-early-access` signup tag.
 - Build output is static and deployable from `dist/`.
 - Canonical and social metadata are configured for `https://bookshell.net/`.
@@ -58,8 +60,21 @@ npm.cmd run build
 npx wrangler deploy
 ```
 
-5. Submit a test email on `bookshell.net`.
-6. Confirm signups:
+5. Create an admin token:
+
+```powershell
+node -e "console.log(require('node:crypto').randomBytes(32).toString('hex'))"
+```
+
+6. Store that token as a Worker secret:
+
+```powershell
+npx wrangler secret put WAITLIST_ADMIN_TOKEN
+```
+
+7. Submit a test email on `bookshell.net`.
+8. Open `https://bookshell.net/admin/`, paste the admin token, and load signups.
+9. Confirm signups from the CLI if needed:
 
 ```powershell
 npx wrangler d1 execute bookshell_waitlist --remote --command "select email, source, tag, created_at from waitlist_signups order by created_at desc limit 10;"
@@ -91,6 +106,7 @@ npx wrangler deploy
 
 - Create and bind the `bookshell_waitlist` D1 database.
 - Apply `migrations/0001_waitlist_signups.sql`.
+- Set `WAITLIST_ADMIN_TOKEN` with `npx wrangler secret put WAITLIST_ADMIN_TOKEN`.
 - Submit a test email on `bookshell.net` and confirm it appears in D1.
 - Point `bookshell.net` and `www.bookshell.net` at the chosen static host.
 - Enable HTTPS for both apex and `www`.

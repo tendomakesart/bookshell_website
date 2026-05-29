@@ -10,6 +10,6 @@ binding = "ASSETS"
 WAITLIST_TAG = "bookshell-early-access"
 
 [[d1_databases]]
-binding = "bookshell_waitlist"
+binding = "WAITLIST_DB"
 database_name = "bookshell_waitlist"
 database_id = "07d869f7-ec3e-4359-88f7-6d0757152202"

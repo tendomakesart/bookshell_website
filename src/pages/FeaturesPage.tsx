@@ -7,47 +7,56 @@ const featureGroups = [
   {
     title: "Reading Experience",
     copy: "EPUB and PDF reading with paged or continuous scroll modes, single-page or two-page spreads, smooth navigation, table-of-contents support, progress display, time-left estimates, fullscreen focus, and per-book layout memory.",
-    items: ["EPUB + PDF", "Paged or scroll", "Two-page spread", "Resume position", "Reader profiles"]
+    items: ["EPUB + PDF", "Paged or scroll", "Two-page spread", "Resume position", "Reader profiles"],
+    image: "/app-screenshots/reader-default.png"
   },
   {
     title: "PDF Markup",
     copy: "PDF zoom, fit modes, thumbnails, outline navigation, search, bookmarks, highlights, underline/wavy/strike styles, sticky notes, freehand markup, shapes, crop memory, OCR, clean scan mode, and annotation export.",
-    items: ["OCR", "Crop memory", "Clean scans", "Freehand markup", "Burn-in export"]
+    items: ["OCR", "Crop memory", "Clean scans", "Freehand markup", "Burn-in export"],
+    image: "/app-screenshots/library-home.png"
   },
   {
     title: "Library Management",
     copy: "A beautiful local library with cover/list/compact views, smart shelves, collections, metadata editing, series and author organization, duplicate detection, folder watching, drag-and-drop import, health checks, and a cover wall.",
-    items: ["Smart shelves", "Bulk metadata", "Folder watch", "Health panel", "Cover wall"]
+    items: ["Smart shelves", "Bulk metadata", "Folder watch", "Health panel", "Cover wall"],
+    image: "/app-screenshots/library-home.png"
   },
   {
     title: "Search and Navigation",
     copy: "Search books, notes, highlights, tags, collections, chapters, and local concepts. Jump through the command palette to books, chapters, annotations, collections, settings, citations, and exports.",
-    items: ["Whole-library search", "Saved searches", "Command palette", "Jump anywhere", "Keyboard shortcuts"]
+    items: ["Whole-library search", "Saved searches", "Command palette", "Jump anywhere", "Keyboard shortcuts"],
+    image: "/app-screenshots/command-palette.png"
   },
   {
     title: "Notes, Shell Notes, and Pearls",
     copy: "Highlights, notes, tags, filters, snapshots, annotation repair, export formats, book-level notebooks, citations, Pearls, review notes, Markdown study sheets, and cross-library Pearl shelves.",
-    items: ["Shell Notes", "Pearls", "Snapshots", "Markdown export", "Portable data"]
+    items: ["Shell Notes", "Pearls", "Snapshots", "Markdown export", "Portable data"],
+    image: "/app-screenshots/command-palette.png"
   },
   {
     title: "Soundtracks and TTS",
     copy: "A launch sound library, local music import, mood tagging, per-book or per-profile playlists, soundtrack dock, gapless loops, crossfade, TTS mini-player, sentence highlighting, sleep timer, and music ducking.",
-    items: ["55-ish launch tracks", "Local music", "Mood tags", "Read aloud", "Music ducking"]
+    items: ["55-ish launch tracks", "Local music", "Mood tags", "Read aloud", "Music ducking"],
+    image: "/app-screenshots/settings-panel.png"
   },
   {
     title: "Private Discovery",
     copy: "Local-first recommendations from your metadata, reading history, abandonment patterns, collections, annotation themes, mood tags, and soundtrack profiles, with optional anonymous aggregate discovery and no follower graph.",
-    items: ["Read next", "Return to this", "Anonymous pulse", "No public profile", "Explainable suggestions"]
+    items: ["Read next", "Return to this", "Anonymous pulse", "No public profile", "Explainable suggestions"],
+    image: "/app-screenshots/privacy-panel.png"
   },
   {
     title: "Export and Interop",
     copy: "Takeout-friendly local exports for metadata, annotations, covers, settings, collections, tags, reading positions, Markdown, JSON, CSV, TXT, BibTeX, CSL JSON, Obsidian, Notion, Readwise, Zotero, Calibre, OPDS, and deep links.",
-    items: ["Export everything", "Markdown/JSON/CSV", "BibTeX/CSL", "Obsidian/Notion", "Deep links"]
+    items: ["Export everything", "Markdown/JSON/CSV", "BibTeX/CSL", "Obsidian/Notion", "Deep links"],
+    image: "/app-screenshots/settings-panel.png"
   },
   {
     title: "Accessibility and Polish",
     copy: "Accessibility profiles, low-vision and dyslexia-friendly modes, high contrast, large UI controls, keyboard navigation, screen reader labels, visible focus rings, reduced motion, skeleton loaders, autosave, undo, and responsive desktop layouts.",
-    items: ["Reduced motion", "Large UI", "High contrast", "Autosave", "Undo support"]
+    items: ["Reduced motion", "Large UI", "High contrast", "Autosave", "Undo support"],
+    image: "/app-screenshots/settings-panel.png"
   }
 ];
 
@@ -67,16 +76,13 @@ export function FeaturesPage() {
               and export-friendly data without surrendering your library to a cloud account.
             </p>
           </div>
-          <div className="placeholder-image" aria-label="BookShell feature placeholder visual">
-            <span />
-            <span />
-            <span />
-          </div>
+          <img className="info-hero-shot" src="/app-screenshots/reader-maximized.png" alt="BookShell reader captured during the app screenshot audit." />
         </section>
 
         <section className="feature-directory" aria-label="BookShell feature directory">
           {featureGroups.map((group) => (
             <article className="feature-directory-card" key={group.title}>
+              <img src={group.image} alt="" aria-hidden="true" />
               <h2>{group.title}</h2>
               <p>{group.copy}</p>
               <div>

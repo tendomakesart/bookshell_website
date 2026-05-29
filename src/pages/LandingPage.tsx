@@ -9,22 +9,26 @@ const featureTiles = [
   {
     eyebrow: "Local-first library",
     title: "A Windows reading room that starts with your files.",
-    copy: "Import EPUBs and PDFs into a calm local library with progress, metadata, and reading state close at hand."
+    copy: "The real app opens on a warm local shelf: import, command palette, collections, Pearls, discovery, tools, and settings sit beside the books instead of above them.",
+    image: "/app-screenshots/library-home.png"
   },
   {
     eyebrow: "Reader control",
     title: "Typography and themes are part of the reading surface.",
-    copy: "Tune font size, line height, margins, page mode, and reading themes without turning the app into a cockpit."
+    copy: "The audit reader capture keeps the page central, with quiet page turns and a muted reading surface built for long sessions.",
+    image: "/app-screenshots/reader-default.png"
   },
   {
     eyebrow: "Shell Notes",
     title: "Highlights become something useful after the chapter ends.",
-    copy: "Collect notes, bookmarks, citations, and favorite Pearls into a study panel built for review and export."
+    copy: "Command and panel surfaces share the same shell language, so notes, search, settings, and power tools feel like part of one room.",
+    image: "/app-screenshots/command-palette.png"
   },
   {
     eyebrow: "Reading atmosphere",
     title: "The app can fade back while the room stays alive.",
-    copy: "Subtle reader chrome, accessible controls, read-aloud support, and optional soundtrack moods keep long sessions comfortable."
+    copy: "Privacy and settings panels use the same warm material system as the library, keeping power-reader controls calm instead of clinical.",
+    image: "/app-screenshots/privacy-panel.png"
   }
 ];
 
@@ -36,22 +40,26 @@ const galleryPanels = [
   {
     label: "Library",
     title: "A local shelf that remembers what you were doing.",
-    copy: "Progress, reading state, metadata, and active books stay close without turning the app into a file dump."
+    copy: "The library capture shows the app’s actual shell: logo, command entry, import, local search, collections, and shelf navigation.",
+    image: "/app-screenshots/library-home.png"
   },
   {
     label: "Reader",
     title: "A tuned page for long sessions.",
-    copy: "Reader themes, margins, typography, and quiet chrome keep the book in front instead of the software."
+    copy: "The reader capture puts the book in the center and leaves chrome at the edges, matching the hidden-chrome promise.",
+    image: "/app-screenshots/reader-default.png"
   },
   {
-    label: "Shell Notes",
-    title: "The study panel after the chapter.",
-    copy: "Highlights, bookmarks, Pearls, citations, and notes gather into exportable review material."
+    label: "Command",
+    title: "Power tools without leaving the room.",
+    copy: "The command palette gives the website a real product signal for keyboard-first navigation and fast jumps.",
+    image: "/app-screenshots/command-palette.png"
   },
   {
-    label: "Soundtrack dock",
-    title: "Atmosphere when focus needs a little help.",
-    copy: "Pair reading sessions with local soundtrack moods while keeping the library private and local-first."
+    label: "Privacy",
+    title: "Trust controls belong in the main shell.",
+    copy: "The privacy panel grounds the site’s local-first promise in an actual app surface instead of abstract copy.",
+    image: "/app-screenshots/privacy-panel.png"
   }
 ];
 
@@ -95,6 +103,7 @@ export function LandingPage() {
         <section className="feature-grid" aria-label="BookShell features">
           {featureTiles.map((feature) => (
             <article className="feature-tile" key={feature.title}>
+              <img className="feature-shot" src={feature.image} alt="" aria-hidden="true" />
               <p className="eyebrow">{feature.eyebrow}</p>
               <h2>{feature.title}</h2>
               <p>{feature.copy}</p>
@@ -133,6 +142,7 @@ export function LandingPage() {
           <div className="mockup-gallery">
             {galleryPanels.map((panel) => (
               <article className="gallery-panel" key={panel.title}>
+                <img src={panel.image} alt="" aria-hidden="true" />
                 <span>{panel.label}</span>
                 <h3>{panel.title}</h3>
                 <p>{panel.copy}</p>

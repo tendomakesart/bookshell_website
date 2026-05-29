@@ -7,7 +7,9 @@ export function Header({ active }: HeaderProps) {
     <header className="site-header">
       <a className="brand" href="/" aria-label="BookShell home">
         <img className="brand-logo" src="/brand/bookshell-logo-web.png" alt="" aria-hidden="true" />
-        <span className="brand-wordmark">BookShell</span>
+        <span className="brand-wordmark">
+          Book<span>Shell</span>
+        </span>
       </a>
       <nav className="site-nav" aria-label="Primary navigation">
         <a aria-current={active === "home" ? "page" : undefined} href="/">

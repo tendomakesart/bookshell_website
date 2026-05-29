@@ -15,7 +15,7 @@ export async function joinWaitlist(email: string, website = ""): Promise<Waitlis
   }
 
   const response = await fetch("/api/waitlist", {
-    body: JSON.stringify({ email: email.trim(), website }),
+    body: JSON.stringify({ email: email.trim(), source: window.location.pathname, website }),
     headers: {
       "Content-Type": "application/json"
     },

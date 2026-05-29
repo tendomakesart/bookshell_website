@@ -30,27 +30,25 @@ async function handleWaitlistSignup(request, env) {
     return json({ error: "Enter a valid email to join early access." }, { status: 400 });
   }
 
-  if (!env.BUTTONDOWN_API_KEY) {
-    return json({ error: "Early access signup is not configured yet." }, { status: 503 });
+  if (!env.WAITLIST_DB) {
+    return json({ error: "Early access signup storage is not configured yet." }, { status: 503 });
   }
 
-  const tag = env.BUTTONDOWN_TAG || "bookshell-early-access";
-  const ipAddress = request.headers.get("CF-Connecting-IP") || undefined;
-  const response = await fetch("https://api.buttondown.com/v1/subscribers", {
-    body: JSON.stringify({
-      email_address: email,
-      ip_address: ipAddress,
-      tags: [tag]
-    }),
-    headers: {
-      Authorization: `Token ${env.BUTTONDOWN_API_KEY}`,
-      "Content-Type": "application/json",
-      "X-Buttondown-Collision-Behavior": "add"
-    },
-    method: "POST"
-  });
+  const source = typeof payload.source === "string" ? payload.source.slice(0, 120) : "website";
+  const tag = env.WAITLIST_TAG || "bookshell-early-access";
 
-  if (!response.ok) {
+  try {
+    await env.WAITLIST_DB.prepare(
+      `insert into waitlist_signups (email, source, tag)
+       values (?, ?, ?)
+       on conflict(email) do update set
+         source = excluded.source,
+         tag = excluded.tag,
+         updated_at = CURRENT_TIMESTAMP`
+    )
+      .bind(email, source, tag)
+      .run();
+  } catch {
     return json({ error: "That email did not go through. Please try again." }, { status: 502 });
   }
 
